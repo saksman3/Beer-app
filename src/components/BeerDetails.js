@@ -1,19 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {removeBeer} from '../actions/beers'
 
-const BeerDetails=(props)=>{
-        return (
-            <div>
-               <p>Name : {props.beer.name}</p>
-               <p>Style : {props.beer.style}</p>
-               <p>Calories : {props.beer.calories}</p>
-               <p>IBU : {props.beer.ibu}</p>
-               <p>ABV : {props.beer.abv}</p>
-               <p>Category : {props.beer.category}</p>
-               <Link to={`/edit/${props.match.params.id}`}>edit</Link>
-            </div>
-        );
+class BeerDetails extends React.Component{
+    removeFunct = ()=>{
+        this.removeBeer(this.props.beer);
+    }
+       render(){
+            return (
+                <div>
+                <p>Name : {this.props.beer.name}</p>
+                <p>Style : {this.props.beer.style}</p>
+                <p>Calories : {this.props.beer.calories}</p>
+                <p>IBU : {this.props.beer.ibu}</p>
+                <p>ABV : {this.props.beer.abv}</p>
+                <p>Category : {this.props.beer.category}</p>
+                <Link to={`/edit/${this.props.match.params.id}`}>edit</Link>
+                <button>Remove</button>
+                </div>
+            );
+       }
     }
 const MapStateToProps=(state,props)=>{
 
@@ -26,5 +33,10 @@ const MapStateToProps=(state,props)=>{
         })
     }
 }
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        removeBeer: (beer) => dispatch(removeBeer(beer))
+    }
+}
     
-export default connect(MapStateToProps)(BeerDetails);
+export default connect(MapStateToProps,mapDispatchToProps)(BeerDetails);
