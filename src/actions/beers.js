@@ -46,3 +46,19 @@ export const startAddBeer = (beer)=>{
         })));
     }
 }
+export const startRemove=(beer)=>{
+    return(dispatch)=>{
+        fetch(beer.url,{
+            method:'DELETE',
+            headers:{
+                contentType:'application/json'
+            },
+            
+        }).then((response)=>{
+            return response.json();}
+
+        ).then((json)=>{
+            console.log(json);
+        })
+      }
+    };

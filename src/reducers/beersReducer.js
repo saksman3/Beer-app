@@ -25,9 +25,9 @@ const beersReducer = (state=defaultBeers,action)=>{
               }
            });
        case 'REMOVE_BEER':
-/*           return state.filter((beer,index)=>{
+          return state.filter((beer,index)=>{
               return index !== parseInt(action.id,10)
-          }); */
+          });
        default:
          return state;
     }
