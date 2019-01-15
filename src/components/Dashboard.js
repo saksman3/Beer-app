@@ -1,14 +1,14 @@
 import React from 'react';
-import BeerList from './BeerList';
-import BeerListFilter from './BeersFilter';
+import Categories from './Categories';
+
 
 class Dashboard extends React.Component{
     render(){
         return (
            <div>
-              <p>Beers</p>
-              <BeerListFilter/>
-              <BeerList/>
+              <p>Categories</p>
+              <Categories/>
+              
            </div>
         );
     }

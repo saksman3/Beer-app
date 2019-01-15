@@ -1,18 +1,37 @@
 import React from 'react';
-export default class AddBeer extends React.Component{
+import BeerForm from './BeerForm';
+import {connect} from 'react-redux'
+import {startAddBeer} from '../actions/beers';
+ class AddBeer extends React.Component{
+    onSubmit = (beer)=>{
+        console.log(beer);
+      this.props.startAddBeer(beer);
+      this.props.history.push('/');
+    }
     render(){
         return(
-            <form>
-                <input type="text"/>
-                <input type="text"/>
-                <select>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
-                <button>Save</button>
-
-            </form>
+            <div>
+                <h1>Add Beer</h1>
+                <BeerForm
+                onSubmit={this.onSubmit}
+                categories={this.props.categories}
+                />
+            </div>
+            
         );
     }
 }
+const mapDispatchToProps=(dispatch)=>{
+    return {
+        
+        startAddBeer:(beer)=>dispatch(startAddBeer(beer)),
+        
+    }
+}
+const mapStateToProps = (state)=>{
+    console.log(state);
+    return {
+        categories:state.categories
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(AddBeer)

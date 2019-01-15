@@ -1,5 +1,7 @@
 import React from 'react';
-export default class BeersFilter extends React.Component{
+import {connect} from 'react-redux'
+import {setNameFilter,sortByDate,sortByName} from '../actions/filters'
+class BeersFilter extends React.Component{
     onSortChange = (e)=>{
       if(e.target.value==='date'){
           this.props.sortByDate();
@@ -8,7 +10,7 @@ export default class BeersFilter extends React.Component{
       }
     }
     onTextChange=(e)=>{
-        this.props.setTextFilter(e.target.value)
+        this.props.setNameFilter(e.target.value)
     }
     render(){
         return(
@@ -22,3 +24,17 @@ export default class BeersFilter extends React.Component{
         );
     }
 }
+const mapStateToProps = (state)=>{
+  return {
+      filters:state.filters
+  }
+}
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    setNameFilter:(name)=>dispatch(setNameFilter(name)),
+    sortByDate:()=>dispatch(sortByDate()),
+    sortByName:()=>dispatch(sortByName()),
+  }
+
+}
+export default connect(mapStateToProps,mapDispatchToProps)(BeersFilter);

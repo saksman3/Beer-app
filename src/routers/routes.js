@@ -3,19 +3,42 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Dashboard from '../components/Dashboard';
 import AddBeer from '../components/AddBeer';
 import Header from '../components/Header';
-const AppRoutes = ()=>{
+import ViewBeers from '../components/ViewBeers';
+import {connect} from 'react-redux';
+import {fetchData} from '../actions/beers';
+import {fetchCategories} from '../actions/categories';
+import EditBeer from '../components/EditBeer';
+import BeerDetails from '../components/BeerDetails';
+class  AppRoutes extends React.Component{
+    componentDidMount()
+    {
+        this.props.fetchCategories();
+        this.props.fetchData();
+        
+       
+    }
+    render(){
     return (
         <BrowserRouter>
             <div>
                <Header/>
                <Switch>
                       <Route path="/" component={Dashboard} exact={true}/>
+                      <Route path="/category/:id" component={ViewBeers}/>
                       <Route path="/create" component={AddBeer}/>
-                      <Route path="/edit/:id" component={Dashboard}/>
+                      <Route path="/beer/:id" component={BeerDetails}/>
+                      <Route path="/edit/:id" component={EditBeer}/>
 
                </Switch>
             </div>
         </BrowserRouter>
     )
+    }
 }
-export default AppRoutes;
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        fetchCategories:()=>dispatch(fetchCategories()),
+        fetchData:()=>dispatch(fetchData()),
+    };
+}
+export default connect(undefined,mapDispatchToProps)(AppRoutes);

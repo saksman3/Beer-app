@@ -1,7 +1,11 @@
 const defaultBeers = [];
-
-export default(state={},action)=>{
+const beersReducer = (state=defaultBeers,action)=>{
     switch(action.type){
+     
+       case 'FETCH_DATA':
+           return(
+               action.beers
+           );   
        case 'ADD_BEER':
            return [
                ...state,
@@ -19,8 +23,9 @@ export default(state={},action)=>{
               }
            });
        case 'REMOVE_BEER':
-          return state.filter((name)=>name != action.name);
+          return state.filter((name)=>name !== action.name);
        default:
          return state;
     }
 }
+export default beersReducer;
