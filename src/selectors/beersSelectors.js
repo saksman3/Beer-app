@@ -1,6 +1,11 @@
-export default(beers,{name="",sortBy="date"})=>{
+export default(beers,category,{name="",sortBy=""})=>{
+    console.log("cat",category[0].url);
     return beers.filter((beer)=>{
-      const nameMatch =beer.name.toLowerCase().includes(name.toLowerCase());
+      const categoryMatch = beer.category === category[0].url;
+      let nameMatch=false;
+      if(categoryMatch){
+         nameMatch =beer.name.toLowerCase().includes(name.toLowerCase());
+      }
       return nameMatch;
     }).sort((a,b)=>{
       if(sortBy === 'date'){

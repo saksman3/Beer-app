@@ -1,5 +1,6 @@
 const defaultBeers = [];
 const beersReducer = (state=defaultBeers,action)=>{
+    console.log(action);
     switch(action.type){
      
        case 'FETCH_DATA':
@@ -12,8 +13,9 @@ const beersReducer = (state=defaultBeers,action)=>{
                action.beer
            ]
        case 'EDIT_BEER':
-           return state.map((beer)=>{
-              if(beer.name=== action.name){
+           return state.map((beer,index)=>{
+               console.log(action.updates);
+              if(index===parseInt(action.id,10)){
                   return {
                       ...beer,
                       ...action.updates
@@ -23,7 +25,9 @@ const beersReducer = (state=defaultBeers,action)=>{
               }
            });
        case 'REMOVE_BEER':
-          return state.filter((name)=>name !== action.name);
+/*           return state.filter((beer,index)=>{
+              return index !== parseInt(action.id,10)
+          }); */
        default:
          return state;
     }

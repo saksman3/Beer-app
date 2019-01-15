@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 const Beer = (props)=>{
+    console.log(props.beer);
     return(
         <div>
            <Link to={`/beer/${props.index}`}>

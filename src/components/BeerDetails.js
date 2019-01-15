@@ -10,6 +10,7 @@ const BeerDetails=(props)=>{
                <p>Calories : {props.beer.calories}</p>
                <p>IBU : {props.beer.ibu}</p>
                <p>ABV : {props.beer.abv}</p>
+               <p>Category : {props.beer.category}</p>
                <Link to={`/edit/${props.match.params.id}`}>edit</Link>
             </div>
         );

@@ -5,11 +5,11 @@ import {removeBeer,editBeer} from '../actions/beers'
 
 class EditBeer extends React.Component{
     onSubmit =(beer)=>{
-        this.props.editBeer(this.props.beer.name,beer)
-        this.props.history.push('/');
-    }
-    onRemove = ()=>{
-        this.props.removeBeer({name:this.props.beer.name})
+        const beerID = this.props.match.params.id;
+        this.props.editBeer(beerID,beer)
+        console.log("edit",this.props.beer);
+        
+        this.props.history.push(`/beer/${beerID}`);
     }
     render(){
         return(
@@ -18,17 +18,17 @@ class EditBeer extends React.Component{
                     onSubmit={this.onSubmit}
                     beer={this.props.beer}
                     categories={this.props.categories}
+                    disabled={true}
                 />
-                <button onClick={this.onRemove}>RemoveBeer</button>           
+                         
             </div>
 
         );
     }
 }
-const mapDispatchToProps = (dispatch)=>{
+const mapDispatchToProps = (dispatch,props)=>{   
     return {
-          editBeer:({id,beer})=>dispatch(editBeer(id,beer)),
-          removeBeer:(id)=>dispatch(removeBeer(id))
+         editBeer:(id,beer)=>dispatch(editBeer(id,beer)),
     }
 }
 const mapStateToProps = (state,props)=>{

@@ -92,6 +92,7 @@ class BeerForm extends React.Component{
                     <select
                      value={this.state.category}
                      onChange={this.CategoryChange}
+                     disabled={this.props.disabled}
                      >
                        <option>Select</option>
                        {
