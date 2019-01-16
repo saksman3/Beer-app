@@ -1,0 +1,60 @@
+.wrapper{
+    background-color: #242941;
+}
+.container{
+    max-width: 60rem; 
+    margin:0 auto; 
+    padding: 1.2rem;
+
+
+}
+.page_title{
+    background: rgb(33,44,66);
+    color: red;
+    
+}
+.header{
+    padding:20px 0;
+    background-color: #242941;
+    margin-bottom: 5px;
+    align-items: left;
+    
+}
+.header_items{
+    margin:5px;
+    color:red;
+}
+.header_active_class{
+    color:yellow;
+    text-decoration: underline;
+}
+.header_items:hover{
+    color:green;
+}
+.category{
+    display: flex;
+    justify-content: space-between;
+    margin:0;
+    padding:20px 10px;
+    border-bottom: 2px solid grey;
+}
+.category_text{
+  
+}
+.widget{
+    background: #464b5e;
+    margin-bottom: 15px;
+    color:white;
+    font-weight: bold;
+}
+.widget-header{
+    background:#3c4251;
+    color:#a5afd7;
+    display: flex;
+    padding:2px;
+    justify-content: space-between;
+}
+.widget_header_title{
+    margin:0;
+    color:white
+}

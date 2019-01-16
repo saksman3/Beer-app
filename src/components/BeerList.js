@@ -17,8 +17,10 @@ const BeerList =(props)=>{
 }
 const mapStateToProps = (state,props)=>{
     const category = state.categories.filter((category,index)=>{
-        if(index===parseInt(props.category))
-        return category
+        if(index===parseInt(props.category)){
+            return category
+        }
+          
     });
     return {
         beers:selectBeers(state.Beers,category,state.filters)

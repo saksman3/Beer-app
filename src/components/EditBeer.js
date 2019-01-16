@@ -1,7 +1,7 @@
 import React from 'react';
 import BeerForm from './BeerForm';
 import {connect} from 'react-redux';
-import {removeBeer,editBeer} from '../actions/beers'
+import {editBeer} from '../actions/beers'
 
 class EditBeer extends React.Component{
     onSubmit =(beer)=>{

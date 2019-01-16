@@ -37,24 +37,32 @@ export const startAddBeer = (beer)=>{
     return (dispatch)=>{
         fetch('http://apichallenge.canpango.com/beers/',{
             method:'post',
+            headers:new Headers(),
             body:JSON.stringify(beer)
         }).then((response)=>{
+            console.log("response",response.json());
             return response.json();
-        }).then((responseJson)=>dispatch(addBeer({
+        }).then((responseJson)=>{
+            dispatch(addBeer({
             name:responseJson.name,
             ...beer
-        })));
+        }))}).catch((error)=>{
+            console.log("Error!",error);
+        });
     }
 }
 export const startRemove=(beer)=>{
     return(dispatch)=>{
         fetch(beer.url,{
             method:'DELETE',
+            mode:'no-cors',
             headers:{
-                contentType:'application/json'
+                 contenttype:'application/json',
+                 
             },
             
         }).then((response)=>{
+            console.log(response.json());
             return response.json();}
 
         ).then((json)=>{

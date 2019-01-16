@@ -5,9 +5,19 @@ import Categories from './Categories';
 class Dashboard extends React.Component{
     render(){
         return (
-           <div>
-              <p>Categories</p>
-              <Categories/>
+           <div className="wrapper">
+             <div className="main">
+                <div className="container">
+                  <p >Categories</p>
+                  <div className="widget">
+                    <Categories/>
+                  </div>
+                  
+                </div>
+             </div>
+
+              
+              
               
            </div>
         );
