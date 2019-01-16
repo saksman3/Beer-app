@@ -28,6 +28,8 @@ const beersReducer = (state=defaultBeers,action)=>{
           return state.filter((beer,index)=>{
               return index !== parseInt(action.id,10)
           });
+
+  
        default:
          return state;
     }

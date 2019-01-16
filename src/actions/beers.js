@@ -26,6 +26,7 @@ const recieveBeers = (json)=>{
     }
 }
 
+
 export const fetchData = ()=>{
     return (dispatch)=>{
         fetch('http://apichallenge.canpango.com/beers/').then((data)=>{
@@ -70,3 +71,5 @@ export const startRemove=(beer)=>{
         })
       }
     };
+
+   

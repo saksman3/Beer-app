@@ -1,5 +1,6 @@
 .wrapper{
-    background-color: #242941;
+   
+    border-bottom: 1px solid red;
 }
 .container{
     max-width: 60rem; 
@@ -15,14 +16,28 @@
 }
 .header{
     padding:20px 0;
-    background-color: #242941;
+    background-color: black;
     margin-bottom: 5px;
     align-items: left;
-    
+    box-shadow: 5px 10px;    
+    display: flex;
+    color:white;
+}
+.header_container{
+    width: 100%;
+    display: flex;
+    justify-content: baseline;
 }
 .header_items{
-    margin:5px;
+   
+    color:white;
+    margin-left: 4px;
+}
+.header_items_input{
     color:red;
+    border-radius: 2px;
+    height:30px;
+    padding: 1px 2px;
 }
 .header_active_class{
     color:yellow;
@@ -30,6 +45,12 @@
 }
 .header_items:hover{
     color:green;
+}
+.btn{
+    padding: 1px 2px;
+    color:red;
+    border:none;
+    height: 30px;
 }
 .category{
     display: flex;
@@ -57,4 +78,72 @@
 .widget_header_title{
     margin:0;
     color:white
+}
+
+.beers-container{
+    display:flex;
+    justify-content:row;
+}
+.flex-child{
+    margin-top: 10px;
+    width:300px;
+    height:200px;
+    box-shadow: 3px 5px;
+    border: 1px solid rgb(150, 17, 17);
+    padding:10px;
+    margin-left:20px;
+    border-radius: 3px;
+    background-color: #a5afd7;
+}
+.beers_list{
+    
+}
+.home{
+   
+    height: 100vh;
+}
+.beer_title{
+    color:red;
+    width: 100%;
+    background: #05155e;
+    text-align: center;
+}
+.beer_details{
+display:flex;
+justify-content: center;
+flex-shrink: 1;
+
+}
+.beer_details_content{
+    margin-top: 10px;
+
+    box-shadow: 3px 5px;
+    border: 1px solid rgb(150, 17, 17);
+    padding:10px;
+    margin-left:20px;
+    border-radius: 3px;
+    color:orange;
+    background-color: #141724;
+}
+.form-container{
+  border-radius: 5px;
+  box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
+  width:450px;
+  display: flex;  
+  flex-direction: column;
+  margin: 10px;
+}
+.form-item{
+	color: rgb(15, 2, 2);
+	padding:25px 25px ;
+	margin: 20px 20px ;	
+    border-radius: 3px;
+    border:1px solid red;
+}
+input{
+    border: 0;
+    color: inherit;
+    font: inherit;
+    padding:5px 5px 7px 10px;
+    border-bottom:1px solid black;
 }

@@ -9,20 +9,19 @@ class BeerDetails extends React.Component{
     }
        render(){
             return (
-                <div>
-                   <div className="card">
-                      <div className="card-body">
-                        <p className="card-title">Titlw</p>
-                      </div>
-                   </div>
-                <p>Name : {this.props.beer.name}</p>
-                <p>Style : {this.props.beer.style}</p>
-                <p>Calories : {this.props.beer.calories}</p>
-                <p>IBU : {this.props.beer.ibu}</p>
-                <p>ABV : {this.props.beer.abv}</p>
-                <p>breweryLocation : {this.props.beer.brewery_location}</p>
-                <Link to={`/edit/${this.props.match.params.id}`}>edit</Link>
-                <button onClick={this.removeFunct}>Remove</button>
+                <div className="beer_details">
+                  <div className="beer_details_content">
+                  <p>Name : {this.props.beer.name}</p>
+                  <p>Style : {this.props.beer.style}</p>
+                  <p>Calories : {this.props.beer.calories}</p>
+                  <p>IBU : {this.props.beer.ibu}</p>
+                  <p>ABV : {this.props.beer.abv}</p>
+                  <p>breweryLocation : {this.props.beer.brewery_location}</p>
+                  <Link to={`/edit/${this.props.match.params.id}`}>edit</Link>
+                  <button className="btn btn-danger"onClick={this.removeFunct}>Remove</button>                   
+                  </div>
+                  
+
                 </div>
             );
        }

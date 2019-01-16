@@ -7,18 +7,12 @@ class Dashboard extends React.Component{
         return (
            <div className="wrapper">
              <div className="main">
-                <div className="container">
-                  <p >Categories</p>
+                <div className="container">                 
                   <div className="widget">
                     <Categories/>
-                  </div>
-                  
+                  </div>                  
                 </div>
-             </div>
-
-              
-              
-              
+             </div>              
            </div>
         );
     }

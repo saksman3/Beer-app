@@ -4,7 +4,7 @@ import selectBeers from '../selectors/beersSelectors';
 import Beer from './Beer';
 const BeerList =(props)=>{
     return(
-        <div>
+        <div className="beers-container">
            {
                props.beers.length === 0?(<p>No beers.</p>):(
                    props.beers.map((beer,index)=>{
