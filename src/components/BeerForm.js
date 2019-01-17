@@ -1,18 +1,17 @@
 import React from 'react';
-import moment from 'moment';
 import {SingleDatePicker} from 'react-dates';
 class BeerForm extends React.Component{
     state = {
         name:this.props.beer? this.props.beer.name:'',
         ibu:this.props.beer?this.props.beer.ibu:0,
         calories:this.props.beer?this.props.beer.calories:0,
-        abv:this.props.beer?this.props.beer.abv:"",
+        abv:this.props.beer?this.props.beer.abv:0,
         style:this.props.beer?this.props.beer.style:"",
         brewery_location:this.props.beer?this.props.beer.brewery_location:"",
-        created_on:this.props.beer?moment(this.props.beer.created_on):moment(),
         category:this.props.beer?this.props.beer.category:undefined,
+        url:this.props.beer?this.props.beer.url:'',
         error:'',
-        calendarFocused:false
+
 
     }
     onNameChange = (e)=>{
@@ -39,14 +38,12 @@ class BeerForm extends React.Component{
        const category = e.target.value;
        this.setState(()=>({category}));
     }
-    onDateChange=(created_on)=>{
-       if(created_on){
-           this.setState(()=>({created_on}));
-       }
+    onAbvChange=(e)=>{
+        const abv = e.target.value;
+        this.setState(()=>({abv}));
     }
-    onFocusChange = ({focused})=>{
-       this.setState(()=>({calendarFocused:focused}));
-    }
+
+
     onSubmitHandler = (e)=>{
         console.log("submitting");
        e.preventDefault();
@@ -64,70 +61,111 @@ class BeerForm extends React.Component{
                abv:this.state.abv,
                style:this.state.style,
                brewery_location:this.state.brewery_location,
-               created_on:this.state.created_on.valueOf(),
-               category:this.state.category
+               category:this.state.category,
+               url:this.state.url
            })
        }
     }
     render(){
         return (
-            <div class="form-container">
-               <div className="form-item">'
+            <div className="form-container">
+               <div className="form-item col-md-12">
                     <form className="beer-form" onSubmit={this.onSubmitHandler}>
-                    <div className="form-field">
-                        <label for="beerName">Beer Name</label>
+                    <div className="form-row">
+                    <div className="form-group col-md-4">
+                    <label  className="col-form-label ">Beer Name</label>
+                    <div className="">
                         <input type="text" 
                         placeholder="beer Name..."
                         autoFocus
                         value = {this.state.name}
                         onChange={this.onNameChange}
                         name="beerName"
-                        />                    
+                        className="form-control"
+                        />  
                     </div>
-                    <div className="form-field">
-                        <label for="style">style Name</label>
+              
+                </div>
+                <div className="form-group col-md-4">
+                    <label  className=" col-form-label">style Name</label>
+                    <div className="">
                         <input type="text" 
                         placeholder="Style"
                         value = {this.state.style}
                         onChange={this.onStyleChange}
                         name="style"
-                        />                   
+                        className="form-control"
+                        />         
                     </div>
-                    <div className="form-field">
-                        <label for="breweryLocation">Brewery Location</label>
-                        <input type="text" 
-                        placeholder="breweryLocation"
-                        value = {this.state.brewery_location}
-                        onChange={this.onBreweryChange}
-                        name="breweryLocation"
-                        />                    
+                              
+                </div>
                     </div>
-                    <div className="form-field">
-
-                        <label for="ibu">IBU</label>
-                        <input type="number" 
-                        placeholder="ibu"
-                        value = {this.state.ibu}
-                        onChange={this.onIbuChange}
-                        name="ibu"
-                        /> 
+                    <div className="form-row">
+                        <div className="form-group col-md-4">
+                        <label  className="">Brewery Location</label>
+                        <div className="">
+                            <input type="text" 
+                            placeholder="brewery"
+                            value = {this.state.brewery_location}
+                            onChange={this.onBreweryChange}
+                            name="breweryLocation"
+                            className="form-control"
+                            />  
+                        </div>
+                                        
                     </div>
-                    <div className="form-field">
-                        <label for="calories">calories</label>    
-                        <input type="number" 
-                        placeholder="calories"
-                        value = {this.state.calories}
-                        onChange={this.onCaloriesChange}
-                        name="calories"
-                        /> 
+                    <div className="form-group col-md-2">
+                        <label  className="">IBU</label>
+                        <div className="">
+                            <input type="number" 
+                            placeholder="ibu"
+                            value = {this.state.ibu}
+                            onChange={this.onIbuChange}
+                            name="ibu"
+                            className="form-control"
+                            /> 
+                        </div>
                     </div>
-                    <div className="form-item">
-                        <label for="category">category</label>              
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group col-md-2">
+                            <label >calories</label> 
+                            <div>
+                                <input type="number" 
+                                placeholder="calories"
+                                value = {this.state.calories}
+                                onChange={this.onCaloriesChange}
+                                name="calories"
+                                className="form-control"
+                                /> 
+                            </div>
+                        
+                        </div>
+                        <div className="form-group col-md-2">
+                            <label>ABV</label> 
+                            <div>
+                                <input type="number" 
+                                placeholder="ABV"
+                                value = {this.state.abv}
+                                onChange={this.onAbvChange}
+                                name="ABV"
+                                className="form-control"
+                                /> 
+                            </div>
+                        
+                        </div>
+                        
+                    </div>
+                    <div className="form-row">
+                    <div className="form-group col-md-4">
+                    <label>category</label>   
+                    <div>
                         <select
                         value={this.state.category}
                         name="category"
                         onChange={this.CategoryChange}
                         disabled={this.props.disabled}
+                        className="form-control"
                         >
                         <option>Select</option>
                         {
@@ -136,20 +174,11 @@ class BeerForm extends React.Component{
                             })
                         }
                         </select>
+                    </div>           
+                    
+                </div>
                     </div>
-                    <div className="form-field">
-                        <label for="created_on">created on</label> 
-                        <SingleDatePicker
-                            date={this.state.created_on}
-                            onDateChange={this.onDateChange}
-                            focused={this.state.calendarFocused}
-                            onFocusChange={this.onFocusChange}
-                            numberOfMonths={1}
-                            isOutsideRange={() => false}
-                        />
-                    </div>
-
-                    <button className="form-field">Save Beer</button>
+                    <button className="btn btn-primary">Save Beer</button>
 
             </form>
                </div>

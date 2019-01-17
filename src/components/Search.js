@@ -13,17 +13,25 @@ class Search extends React.Component{
     render(){
         console.log("search-a",this.props.search);
         return (
-            <div>
-                <form className="search_form" onSubmit={this.onSubmit}>
-                <input type="text" name="text"className="search_items_input" placeholder="search beer"/>
-                <button className="btn search_items_btn">Search</button>
-                </form>
+            <div className="container">
+                <div className="form-container">
+                    <form className="search_form" onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                    <input type="text" name="text" className="search_items_input form-control col-md-6" placeholder="enter beer name"/>
+                    <button className="search_items_btn col-md-2">Search</button>
+                    </div>
+                    
+                    
+                    </form>
+                </div>
+                
                 {
-                   this.props.search.map((beer,index)=>{
+                   this.props.search.length===0?(<p className="no_beer">No beers to display</p>):(this.props.search.map((beer,index)=>{
                        return <Beer index={index} key={index} beer={beer}/>
-                   })
+                   }))
                 }
-            </div>
+                </div>
+          
         );
     }
 }

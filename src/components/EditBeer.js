@@ -1,13 +1,13 @@
 import React from 'react';
 import BeerForm from './BeerForm';
 import {connect} from 'react-redux';
-import {editBeer} from '../actions/beers'
+import {startEditBeer} from '../actions/beers';
 
 class EditBeer extends React.Component{
     onSubmit =(beer)=>{
         const beerID = this.props.match.params.id;
-        this.props.editBeer(beerID,beer)
-        console.log("edit",this.props.beer);
+        this.props.startEditBeer(beerID,beer);
+        console.log("edit beer",beer);
         
         this.props.history.push(`/beer/${beerID}`);
     }
@@ -26,9 +26,9 @@ class EditBeer extends React.Component{
         );
     }
 }
-const mapDispatchToProps = (dispatch,props)=>{   
+const mapDispatchToProps = (dispatch)=>{   
     return {
-         editBeer:(id,beer)=>dispatch(editBeer(id,beer)),
+        startEditBeer:(id,beer)=>dispatch(startEditBeer(id,beer)),
     }
 }
 const mapStateToProps = (state,props)=>{

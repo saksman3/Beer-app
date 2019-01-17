@@ -6,7 +6,7 @@ const Beer = (props)=>{
        <div className="flex-child">
            <p className="beer_title"> {props.beer.name}</p>
             <p> {props.beer.style}</p>
-            <p className="breweryLocation">{props.beer.brewery_location}</p>
+            <p className="brewery Location">{props.beer.brewery_location}</p>
             <Link className="btn btn-primary" to={`/beer/${props.index}`}>  
                view
             </Link>    

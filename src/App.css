@@ -51,6 +51,14 @@
     color:red;
     border:none;
     height: 30px;
+    width: 100px;
+    background: transparent;
+    text-align: left;
+}
+.btn:hover{
+    background: transparent;
+    text-decoration: underline;
+    color: #3456ee;
 }
 .category{
     display: flex;
@@ -93,11 +101,10 @@
     padding:10px;
     margin-left:20px;
     border-radius: 3px;
-    background-color: #a5afd7;
-}
-.beers_list{
+    background:transparent;
     
 }
+
 .home{
    
     height: 100vh;
@@ -113,37 +120,92 @@ display:flex;
 justify-content: center;
 flex-shrink: 1;
 
+
 }
 .beer_details_content{
     margin-top: 10px;
-
-    box-shadow: 3px 5px;
-    border: 1px solid rgb(150, 17, 17);
+    width:60%;
+    box-shadow: 3px 8px rgb(68, 67, 67);
     padding:10px;
     margin-left:20px;
     border-radius: 3px;
     color:orange;
     background-color: #141724;
 }
-.form-container{
-  border-radius: 5px;
-  box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
-  width:450px;
-  display: flex;  
-  flex-direction: column;
-  margin: 10px;
+.btn-danger{
+    margin-left: 2rem;
+    padding: 0 0;
+    
+}
+.form-group input{
+  border:0;
+  border-bottom: 2px solid #05155e;
+
 }
 .form-item{
-	color: rgb(15, 2, 2);
-	padding:25px 25px ;
-	margin: 20px 20px ;	
-    border-radius: 3px;
-    border:1px solid red;
+
+    margin :0 auto;
+    width:100%;
+    background: #141724;
+    color:orange;
+    padding:10px 10px;
 }
-input{
-    border: 0;
-    color: inherit;
-    font: inherit;
-    padding:5px 5px 7px 10px;
-    border-bottom:1px solid black;
+.beer-text{
+    margin:0 auto;
+    color:green;
+    position:relative;
 }
+.form-item .btn{
+    background-color: orange;
+    color:black;
+}
+.add_beer{
+    background-color: #141724;
+    height: 100vh;
+}
+
+.form-container{
+    width:100%;
+    margin:0 auto;
+   
+    padding: 20px 20px;
+    color:orange;
+    box-shadow: 0 4px gray;
+    border-radius: 2px;
+}
+.search_items_input{
+    border:0;
+    border-bottom: 1px solid #f16051;
+    margin: 4px;
+    color:rgb(233, 133, 18) !important;
+    background:transparent;
+    font-size: 20px;
+    width: 200px;
+    font-style: inherit;
+}
+.search_items_input:hover{
+    width: 300px;
+    -webkit-transition: width 0.2s ease-in-out;
+    transition: width 0.1s ease-in-out;
+
+}
+.search_items_input:focus{
+    background:white;
+    
+}
+.search_items_btn{
+    border-radius: 4px;
+    background: #9e3325;
+    color:white;
+}
+.search_items_btn:hover{
+  background: #726a69;
+
+}
+.search_items_btn:active{
+    background: #9e3325;
+  
+  }
+  .no_beer{
+      margin-top:10px;
+  }
