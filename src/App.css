@@ -1,3 +1,6 @@
+body{
+    background: #ccc
+}
 .wrapper{
    
     border-bottom: 1px solid red;
@@ -208,4 +211,42 @@ flex-shrink: 1;
   }
   .no_beer{
       margin-top:10px;
+  }
+  .filter{
+      display: flex;
+      flex-direction: row;
+      padding: 1.6rem;
+  }
+  .inp{
+    flex-grow: 0;
+  
+    color:orange;
+    border:none;
+    margin-bottom:1rem;
+    padding: 10px;
+    width: 40%;
+    margin-right: 10px;
+    border-bottom: 1px solid darkblue;
+    border-radius:5px;
+      
+  }
+  .select{
+      width:20%;
+  }
+  .button{
+    background: purple;
+    border:none;
+    border-bottom: .3rem solid darken(purple,10%);
+    font-weight: 500;
+    color:white;
+    padding: 1rem;
+  }
+  .filters_container{
+    max-width: 60rem; 
+    margin:0 auto;
+    padding: 1.6rem;
+  }
+  .filters_widget{
+    
+    margin-bottom: 1rem;
   }

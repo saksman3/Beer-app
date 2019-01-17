@@ -1,23 +1,4 @@
-export const addBeer = (beer)=>{
-    return{
-        type:'ADD_BEER',
-        beer
-    }
-}
-export const editBeer = (id,updates)=>{
-    return {
-        type:'EDIT_BEER',
-        id,
-        updates
-    }
-}
-export const removeBeer = ({id}={})=>{
-    return {
-        type:'REMOVE_BEER',
-        id
 
-    }
-}
 const recieveBeers = (json)=>{
     console.log('my-array',json);
     return {
@@ -30,53 +11,50 @@ const recieveBeers = (json)=>{
 export const fetchData = ()=>{
     return (dispatch)=>{
         fetch('http://apichallenge.canpango.com/beers/').then((data)=>{
+            
             return data.json();
-        }).then((json)=>dispatch(recieveBeers(json)));    
+        }).then((json)=>{
+            dispatch(recieveBeers(json))
+            console.log("data after edit",json);
+
+        });    
     }
 }
-export const startAddBeer = (beer)=>{
-    return (dispatch)=>{
-        fetch('http://apichallenge.canpango.com/beers/',{
-            method:'post',
-            headers:{
-                "content-type":"application/json"
-            },
-            body:JSON.stringify(beer)
-        }).then((response)=>{
-            console.log("response",response);
-            return response.json();
-        }).then((responseJson)=>{
-            dispatch(addBeer({
-            name:responseJson.name,
-            ...beer
-        }))}).catch((error)=>{
-            console.log("Error!",error);
-        });
+
+export const removeBeer = (beer={})=>{
+    return {
+        type:'REMOVE_BEER',
+        beer
+
     }
 }
 export const startRemove=(beer)=>{
+    console.log("url",beer.url)
     return(dispatch)=>{
         fetch(beer.url,{
             method:'DELETE',
-            mode:'cors',
             headers:{
-                 contenttype:'application/json',
-                 
+                 contenttype:'application/json',   
             },
             
-        }).then((response)=>{
-            console.log(response.json());
-            return response.json();}
+        }).then(()=>{
 
-        ).then((json)=>{
-            console.log(json);
+            dispatch(removeBeer(beer));
         })
       }
     };
-    export const startEditBeer = (id,beer)=>{
-        console.log("start-edit-beer",beer,id);
+    //edit beer
+    export const editBeer = (beer)=>{
+        return {
+            type:'EDIT_BEER',
+            beer,
+            
+        }
+    }
+    export const startEditBeer = (beer)=>{
+        console.log("start-edit-beer",beer);
         return (dispatch)=>{
-           fetch('http://apichallenge.canpango.com/beers/135/',{
+           fetch(beer.url,{
             method:'put',
             headers:{
                 "content-type":"application/json"
@@ -85,10 +63,12 @@ export const startRemove=(beer)=>{
            }).then((response)=>{
                console.log(response);
                return response.json()
-            }).then(dispatch(editBeer(id,beer))).catch((error)=>{
-                console.log("error",error,JSON.stringify(beer));
+            }).then(()=>{
+                dispatch(editBeer(beer));
+            }
+                   
+                ).catch((error)=>{
+                console.log("error",error,);
             }); 
         }
     }
-
-   

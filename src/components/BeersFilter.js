@@ -14,12 +14,17 @@ class BeersFilter extends React.Component{
     }
     render(){
         return(
-            <div>
-                <input type="text" onChange={this.onTextChange}/>
-                <select onChange={this.onSortChange}>
-                     <option value="date">Date</option>
-                     <option value="name">Name</option>
-                </select>
+            <div className="filters_container">
+                 <div className="filters_widget">
+                    <div className="filter">
+                        <input className="inp" type="text" placeholder="filter" onChange={this.onTextChange}/>
+                        <select className="select" onChange={this.onSortChange}>
+                            <option value="date">Date</option>
+                            <option value="name">Name</option>
+                        </select>
+                    </div>
+                 </div>
+
             </div>
         );
     }

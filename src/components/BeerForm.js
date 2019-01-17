@@ -1,5 +1,4 @@
 import React from 'react';
-import {SingleDatePicker} from 'react-dates';
 class BeerForm extends React.Component{
     state = {
         name:this.props.beer? this.props.beer.name:'',

@@ -2,14 +2,15 @@ import React from 'react';
 import BeerForm from './BeerForm';
 import {connect} from 'react-redux';
 import {startEditBeer} from '../actions/beers';
+import {fetchData} from '../actions/beers';
 
 class EditBeer extends React.Component{
     onSubmit =(beer)=>{
         const beerID = this.props.match.params.id;
-        this.props.startEditBeer(beerID,beer);
+        this.props.startEditBeer(beer);
         console.log("edit beer",beer);
-        
-        this.props.history.push(`/beer/${beerID}`);
+        //this.props.fetchData();
+        this.props.history.push(`/`);
     }
     render(){
         return(
@@ -28,14 +29,13 @@ class EditBeer extends React.Component{
 }
 const mapDispatchToProps = (dispatch)=>{   
     return {
-        startEditBeer:(id,beer)=>dispatch(startEditBeer(id,beer)),
+        startEditBeer:(beer)=>dispatch(startEditBeer(beer)),
+        fetchData:()=>dispatch(fetchData()),
     }
 }
-const mapStateToProps = (state,props)=>{
+const mapStateToProps = (state)=>{
     return {
-        beer:state.Beers.find((beer,index)=>{
-            return index === parseInt(props.match.params.id,10)
-        }),
+        beer:state.beer,
         categories:state.categories
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import BeerForm from './BeerForm';
 import {connect} from 'react-redux'
-import {startAddBeer} from '../actions/beers';
+import {startAddBeer} from '../actions/beer';
  class AddBeer extends React.Component{
     onSubmit = (beer)=>{
         console.log(beer);

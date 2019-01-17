@@ -6,6 +6,7 @@ import {startRemove} from '../actions/beers'
 class BeerDetails extends React.Component{
     removeFunct = ()=>{
         this.props.startRemove(this.props.beer);
+        this.props.history.push('/');
     }
        render(){
             return (
@@ -21,22 +22,16 @@ class BeerDetails extends React.Component{
                   <Link to={`/edit/${this.props.match.params.id}`}>edit</Link>
                   <button className="btn btn-danger"onClick={this.removeFunct}>Remove</button>                   
                   </div>
-                  
-
                 </div>
             );
        }
     }
 const MapStateToProps=(state,props)=>{
-
+    console.log("state-b",state);
     return {
-        beer:state.Beers.find((beer,index)=>{
-            if(index===parseInt(props.match.params.id,10)){
-                return beer;
-            }
+        beer:state.beer
                
-        })
-    }
+        }
 }
 const mapDispatchToProps = (dispatch)=>{
     return {
