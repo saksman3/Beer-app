@@ -1,5 +1,7 @@
 
-const beerDetail = {}
+const beerDetail = {
+
+}
  const BeerReducer = (state=beerDetail,action)=>{
     switch(action.type){
         case 'FETCH_BEER':

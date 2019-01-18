@@ -14,7 +14,7 @@ class Category extends React.Component{
   }
    render(){
     return (
-
+      
       <Link  to={`/category/${this.props.index}`} className="category">
          <p onClick={this.onClick} className="category_text">{this.props.index+1}. {this.props.category.name} </p>
           

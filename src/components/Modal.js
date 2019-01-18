@@ -7,12 +7,12 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 
-import {connect} from 'react-redux';
+
 
 class FormDialog extends React.Component {
   state = {
     open: false,
-    name:this.props.category?this.props.category.name:'',
+    name:this.props.category?this.props.category.name:undefined,
     url:this.props.category?this.props.category.url:'',
     
 
@@ -27,9 +27,13 @@ class FormDialog extends React.Component {
   };
   handleSave = ()=>{
       const name = this.state.name;
-      const url = this.state.url;
-      this.props.save({name:name,url:url});
-      this.setState(()=>({open:false}));
+      if(name){
+        console.log("in here");
+        const url = this.state.url;
+        this.props.save({name:name,url:url});
+        this.setState(()=>({open:false}));
+      }
+
   }
   onChange = (e)=>{
       const name = e.target.value;
@@ -60,6 +64,7 @@ class FormDialog extends React.Component {
               type="text"
               fullWidth
               onChange={this.onChange}
+              required
             />
           </DialogContent>
           <DialogActions>

@@ -10,11 +10,11 @@ import {startAddBeer} from '../actions/beer';
     }
     render(){
         return(
-            <div className="add_beer">
-                <h1 className="beer-text">Add Beer</h1>
+            <div className="content-container">
                 <BeerForm
                 onSubmit={this.onSubmit}
                 categories={this.props.categories}
+                
                 />
             </div>
             

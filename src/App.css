@@ -1,6 +1,4 @@
-body{
-    background: #ccc
-}
+
 .wrapper{
    
     border-bottom: 1px solid red;
@@ -19,12 +17,14 @@ body{
 }
 .header{
     padding:20px 0;
-    background-color: black;
-    margin-bottom: 5px;
+    background-color: rgb(71, 69, 69);
+    margin-bottom: 10px;
     align-items: left;
     box-shadow: 5px 10px;    
     display: flex;
     color:white;
+  
+    width: 100%;
 }
 .header_container{
     width: 100%;
@@ -33,15 +33,10 @@ body{
 }
 .header_items{
    
-    color:white;
+    color:red;
     margin-left: 4px;
 }
-.header_items_input{
-    color:red;
-    border-radius: 2px;
-    height:30px;
-    padding: 1px 2px;
-}
+
 .header_active_class{
     color:yellow;
     text-decoration: underline;
@@ -96,16 +91,13 @@ body{
     justify-content:row;
 }
 .flex-child{
-    margin-top: 10px;
     width:300px;
     height:200px;
-    box-shadow: 3px 5px;
-    border: 1px solid rgb(150, 17, 17);
+    box-shadow: 1px 5px;
+    border: 1px solid black;
     padding:10px;
     margin-left:20px;
-    border-radius: 3px;
-    background:transparent;
-    
+    background:  rgba(204, 202, 202, 0.493);
 }
 
 .home{
@@ -115,7 +107,7 @@ body{
 .beer_title{
     color:red;
     width: 100%;
-    background: #05155e;
+    
     text-align: center;
 }
 .beer_details{
@@ -131,7 +123,7 @@ flex-shrink: 1;
     box-shadow: 3px 8px rgb(68, 67, 67);
     padding:10px;
     margin-left:20px;
-    border-radius: 3px;
+    border:0;
     color:orange;
     background-color: #141724;
 }
@@ -143,13 +135,12 @@ flex-shrink: 1;
 .form-group input{
   border:0;
   border-bottom: 2px solid #05155e;
-
 }
 .form-item{
 
     margin :0 auto;
     width:100%;
-    background: #141724;
+    
     color:orange;
     padding:10px 10px;
 }
@@ -163,25 +154,17 @@ flex-shrink: 1;
     color:black;
 }
 .add_beer{
-    background-color: #141724;
+    
     height: 100vh;
 }
 
-.form-container{
-    width:100%;
-    margin:0 auto;
-   
-    padding: 20px 20px;
-    color:orange;
-    box-shadow: 0 4px gray;
-    border-radius: 2px;
-}
+
+
 .search_items_input{
-    border:0;
-    border-bottom: 1px solid #f16051;
+    border:none;
     margin: 4px;
     color:rgb(233, 133, 18) !important;
-    background:transparent;
+    
     font-size: 20px;
     width: 200px;
     font-style: inherit;
@@ -193,7 +176,7 @@ flex-shrink: 1;
 
 }
 .search_items_input:focus{
-    background:white;
+    background:rgb(167, 163, 163);
     
 }
 .search_items_btn{
@@ -232,11 +215,11 @@ flex-shrink: 1;
   }
   
   .button{
-    background: purple;
-    border:none;
+    background: transparent;
     border-bottom: .3rem solid darken(purple,10%);
-    font-weight: 500;
-    color:white;
+    font-weight: 300;
+    font-size:300;
+    color:black;
     padding: 1rem;
   }
   .filters_container{
@@ -285,34 +268,80 @@ flex-shrink: 1;
   .content-container {
         margin: 0 auto;
         padding:  1.6rem;
-        width: 60%;
-       
+        width: 60%;    
 }
 .input-group {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1rem;
 
   }
   .input-group__item {
-    margin-bottom: 1.2rem;  
+    margin-bottom: 1rem;  
   }
   .text-input,.select {
     border: 1px solid #cacccd;
     height: 50px;
-    font-size: 1.8rem;
-    font-weight: 300;
-    padding: 1.2rem;
+    font-size: 1rem;
+    font-weight: 200;
+    padding: 1rem;
     color:red;
+    width:400px;
   }
   .select_{
-      width:300px;
+      width:200px;
       margin-left: 20px;
       height: 50px;
       font-size:300;
-      font-weight: 300;
+      font-weight: 200;
       color:#0d0d0e;
       border-radius: 3px;
+
+  }
+  .search_button{
+      background:none;
+      margin-left:8px;
+  }
+  .search_button:hover{
+      background: black;
+      color:orange;
   }
       
-  
+  .required{
+    box-shadow: 4px 4px 10px  rgba(200, 0, 0, 0.85);
+}
+  /*beer form*/
+
+  .form-wrapper{
+      width:500px;
+      border:1px solid rgb(99, 94, 94);
+      padding: 10px 10px;
+      border-radius: 4px 5px;
+      box-shadow:5px 3px #726a69;
+      margin-bottom: 100px;
+      background: rgba(204, 202, 202, 0.493);
+  }
+.form-control{
+    border-radius: 0;
+    font-size:300;
+    font-weight: 300;
+}
+.form input[type=number] {
+    margin-left:5px;
+    
+}
+.input_label{
+    font-size:200;
+    font-weight: 300;
+}
+.error_message{
+    color:red;
+    font-weight:100;
+    font-size:100;
+    font-style: italic;
+    margin-left: 10px;
+}
+.btn-beer{
+    background: #787885;
+    border:none;
+}

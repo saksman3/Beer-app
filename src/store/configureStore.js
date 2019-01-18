@@ -19,5 +19,8 @@ export default ()=>{
             category:categoryReducer
         }),applyMiddleware(thunk)
     );
+    store.subscribe(()=>{
+        console.log(store.getState());
+    });
     return store;
 }

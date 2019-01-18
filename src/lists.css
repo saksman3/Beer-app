@@ -1,9 +1,11 @@
 .list-body {
     margin-bottom: 1.6rem;
+    border:1px solid red;
   }
   
   .list-item {
-    border: 1px solid #ccc;
+   
+    
     border-top: none;
     color: darkgray;
     display: flex;

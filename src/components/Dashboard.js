@@ -8,7 +8,6 @@ class Dashboard extends React.Component{
     show:false
   }
   showModal = ()=>{
-    console.log("show");
     this.setState(()=>({show:true}));
   }
   hideModal = ()=>{

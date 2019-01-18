@@ -24,7 +24,9 @@ class  AppRoutes extends React.Component{
     return (
         <BrowserRouter>
             <div className="home">
-               <Header/>
+              
+                   <Header/>
+              
                <Switch>
                       <Route path="/" component={Dashboard} exact={true}/>
                       <Route path="/category/:id" component={ViewBeers}/>

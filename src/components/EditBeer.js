@@ -8,13 +8,13 @@ class EditBeer extends React.Component{
     onSubmit =(beer)=>{
         const beerID = this.props.match.params.id;
         this.props.startEditBeer(beer);
-        console.log("edit beer",beer);
+
         this.props.fetchData();
         this.props.history.push(`/beer/${beerID}`);
     }
     render(){
         return(
-            <div>
+            <div className="content-container">
                 <BeerForm 
                     onSubmit={this.onSubmit}
                     beer={this.props.beer}

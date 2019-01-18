@@ -1,4 +1,6 @@
-const defaultStore = [];
+const defaultStore = [
+    
+];
 const beersReducer = (state=defaultStore,action)=>{
     console.log(action);
     switch(action.type){

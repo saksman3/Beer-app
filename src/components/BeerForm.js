@@ -67,13 +67,9 @@ class BeerForm extends React.Component{
     }
     render(){
         return (
-            <div className="form-container">
-               <div className="form-item col-md-12">
-                    <form className="beer-form" onSubmit={this.onSubmitHandler}>
-                    <div className="form-row">
-                    <div className="form-group col-md-4">
-                    <label  className="col-form-label ">Beer Name</label>
-                    <div className="">
+            <div className="form-wrapper">
+            <form className="form" onSubmit={this.onSubmitHandler}>
+                    <div className="input-group">              
                         <input type="text" 
                         placeholder="beer Name..."
                         autoFocus
@@ -81,108 +77,86 @@ class BeerForm extends React.Component{
                         onChange={this.onNameChange}
                         name="beerName"
                         className="form-control"
-                        />  
+                        />
                     </div>
-              
-                </div>
-                <div className="form-group col-md-4">
-                    <label  className=" col-form-label">style Name</label>
-                    <div className="">
-                        <input type="text" 
+                   <div className="input-group">
+                       
+                       <input type="text" 
                         placeholder="Style"
                         value = {this.state.style}
                         onChange={this.onStyleChange}
                         name="style"
                         className="form-control"
-                        />         
-                    </div>
-                              
-                </div>
-                    </div>
-                    <div className="form-row">
-                        <div className="form-group col-md-4">
-                        <label  className="">Brewery Location</label>
-                        <div className="">
-                            <input type="text" 
+                        />                                       
+                   </div>
+                    <div className="input-group">
+                        <input type="text" 
                             placeholder="brewery"
                             value = {this.state.brewery_location}
                             onChange={this.onBreweryChange}
                             name="breweryLocation"
                             className="form-control"
                             />  
-                        </div>
-                                        
+                            <select
+                            value={this.state.category}
+                            name="category"
+                            onChange={this.CategoryChange}
+                            disabled={this.props.disabled}
+                            className="select_"
+                            >
+                            <option>Category</option>
+                            {
+                                this.props.categories.map((category,index)=>{
+                                    return <option key={index}value={category.url}>{category.name}</option>
+                                })
+                            }
+                            </select>
+
                     </div>
-                    <div className="form-group col-md-2">
-                        <label  className="">IBU</label>
-                        <div className="">
-                            <input type="number" 
-                            placeholder="ibu"
-                            value = {this.state.ibu}
-                            onChange={this.onIbuChange}
-                            name="ibu"
-                            className="form-control"
-                            /> 
-                        </div>
-                    </div>
-                    </div>
-                    <div className="form-row">
-                        <div className="form-group col-md-2">
-                            <label >calories</label> 
-                            <div>
-                                <input type="number" 
+                        <div className="input-group">
+                            <label className="input_label">Calories</label>
+                           <input type="number" 
                                 placeholder="calories"
                                 value = {this.state.calories}
                                 onChange={this.onCaloriesChange}
                                 name="calories"
                                 className="form-control"
                                 /> 
-                            </div>
-                        
+                                
                         </div>
-                        <div className="form-group col-md-2">
-                            <label>ABV</label> 
-                            <div>
-                                <input type="number" 
-                                placeholder="ABV"
-                                value = {this.state.abv}
-                                onChange={this.onAbvChange}
-                                name="ABV"
-                                className="form-control"
-                                /> 
-                            </div>
-                        
+                        <div className="input-group">
+                        <label className="input_label">ABV</label>
+                            <input type="number" 
+                            placeholder="ABV"
+                            value = {this.state.abv}
+                            onChange={this.onAbvChange}
+                            name="ABV"
+                            className="form-control"
+                            /> 
                         </div>
-                        
-                    </div>
-                    <div className="form-row">
-                    <div className="form-group col-md-4">
-                    <label>category</label>   
-                    <div>
-                        <select
-                        value={this.state.category}
-                        name="category"
-                        onChange={this.CategoryChange}
-                        disabled={this.props.disabled}
-                        className="form-control"
-                        >
-                        <option>Select</option>
-                        {
-                            this.props.categories.map((category,index)=>{
-                                return <option key={index}value={category.url}>{category.name}</option>
-                            })
-                        }
-                        </select>
+                   
+                    <div className="input-group"> 
+                    <label className="input_label">IBU</label> 
+                    <input type="number" 
+                    placeholder="ibu"
+                    value = {this.state.ibu}
+                    onChange={this.onIbuChange}
+                    name="ibu"
+                    className="form-control"
+                    /> 
                     </div>           
                     
-                </div>
+                    <div className="input-group">
+                      <button className="button btn-beer">Save</button>
+                      <h6 className="error_message">{this.state.error}</h6>
                     </div>
-                    <button className="btn btn-primary">Save Beer</button>
+                    
 
             </form>
-               </div>
-                
             </div>
+               
+                
+            
         );
     }
 }
