@@ -1,5 +1,5 @@
-const defaultBeers = [];
-const beersReducer = (state=defaultBeers,action)=>{
+const defaultStore = [];
+const beersReducer = (state=defaultStore,action)=>{
     console.log(action);
     switch(action.type){
      
@@ -8,6 +8,7 @@ const beersReducer = (state=defaultBeers,action)=>{
                action.beers
            );
        case 'EDIT_BEER':
+           console.log("EditBeerRed",action.beer)
            return state.map((beer)=>{
                if(beer.url === action.beer.url){
                    return {

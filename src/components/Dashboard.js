@@ -2,13 +2,24 @@ import React from 'react';
 import Categories from './Categories';
 
 
+
 class Dashboard extends React.Component{
+  state = {
+    show:false
+  }
+  showModal = ()=>{
+    console.log("show");
+    this.setState(()=>({show:true}));
+  }
+  hideModal = ()=>{
+    this.setState(()=>({show:false}));
+  }
     render(){
         return (
            <div className="wrapper">
              <div className="main">
-                <div className="container">                 
-                  <div className="widget">
+                <div className="content-container">                 
+                  <div className="widget">                  
                     <Categories/>
                   </div>                  
                 </div>

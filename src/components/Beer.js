@@ -8,7 +8,6 @@ class Beer extends React.Component{
 
    }
    render(){
-      console.log("beer-props",this.props);
       return(
          <div className="flex-child">
              <p className="beer_title"> {this.props.beer.name}</p>

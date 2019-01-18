@@ -16,7 +16,7 @@ export const startSearch=(searchText)=>{
             return response.json();
         }).then((responseJson)=>{
            dispatch(receiveResults(responseJson));
-           console.log("data",responseJson);
+         
         }).catch((err)=>{
             console.log(err);
         });

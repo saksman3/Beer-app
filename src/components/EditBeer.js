@@ -9,8 +9,8 @@ class EditBeer extends React.Component{
         const beerID = this.props.match.params.id;
         this.props.startEditBeer(beer);
         console.log("edit beer",beer);
-        //this.props.fetchData();
-        this.props.history.push(`/`);
+        this.props.fetchData();
+        this.props.history.push(`/beer/${beerID}`);
     }
     render(){
         return(

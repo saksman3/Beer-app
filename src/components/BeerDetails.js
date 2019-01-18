@@ -26,8 +26,8 @@ class BeerDetails extends React.Component{
             );
        }
     }
-const MapStateToProps=(state,props)=>{
-    console.log("state-b",state);
+const MapStateToProps=(state,prevState)=>{
+    
     return {
         beer:state.beer
                

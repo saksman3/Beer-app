@@ -6,27 +6,29 @@ class BeerList extends React.Component{
    render(){
        
     return(
-        <div className="beers-container">
-           {
-               this.props.beers.length === 0?(<p>No beers.</p>):(
-                   this.props.beers.map((beer,index)=>{
-                      return <Beer beer={beer} key={index} index={index}/>
-                   })
-               )
-           }
+        <div className="content-container">
+          <div className="list-body">
+                {
+                    this.props.beers.length === 0?(
+                        <div className="list-item list-item--message">
+                           <span>No Beers</span>
+                        </div>
+                    ):(
+                    this.props.beers.map((beer,index)=>{
+                        return <Beer beer={beer} key={index} index={index}/>
+                     })
+                    )
+                 }
+          </div>
+
         </div>
     );
    }
 }
-const mapStateToProps = (state,props)=>{
-    const category = state.categories.find((category,index)=>{
-        if(index===parseInt(props.category)){
-            return category
-        }
-          
-    });
+const mapStateToProps = (state)=>{
+    
     return {
-        beers:selectBeers(state.Beers,category,state.filters)
+        beers:selectBeers(state.Beers,state.category,state.filters)
         
     }
 }

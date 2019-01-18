@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {startAddBeer} from '../actions/beer';
  class AddBeer extends React.Component{
     onSubmit = (beer)=>{
-        console.log(beer);
+        
       this.props.startAddBeer(beer);
       this.props.history.push('/');
     }
@@ -29,7 +29,7 @@ const mapDispatchToProps=(dispatch)=>{
     }
 }
 const mapStateToProps = (state)=>{
-    console.log(state);
+    
     return {
         categories:state.categories
     }

@@ -4,6 +4,8 @@ import filtersReducer from '../reducers/filtersReducer';
 import categoriesReducer from '../reducers/CategoriesReducer';
 import {SearchReducer} from '../reducers/SearchReducer';
 import beerReducer from '../reducers/beerReducer';
+import categoryReducer from '../reducers/categoryReducer';
+import statusReducer from '../reducers/statusReducers';
 import thunk from 'redux-thunk';
 export default ()=>{
     const store =createStore(
@@ -12,11 +14,10 @@ export default ()=>{
             Beers:beersReducer,
             filters:filtersReducer,
             searchResult:SearchReducer,
-            beer:beerReducer
+            beer:beerReducer,
+            status:statusReducer,
+            category:categoryReducer
         }),applyMiddleware(thunk)
     );
-     store.subscribe(()=>{
-        console.log("store",store.getState());
-    }); 
     return store;
 }

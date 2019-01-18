@@ -3,24 +3,24 @@ const recieveBeers = (json)=>{
     console.log('my-array',json);
     return {
         type:'FETCH_DATA',
-        beers:json
+        beers:json,
     }
 }
-
-
 export const fetchData = ()=>{
     return (dispatch)=>{
-        fetch('http://apichallenge.canpango.com/beers/').then((data)=>{
-            
+        console.log("fetching");
+        fetch('http://apichallenge.canpango.com/beers/',{
+            headers:{
+                'cache-control':'no-cache',
+                'pragma':'no-cache'
+            }
+        }).then((data)=>{
             return data.json();
         }).then((json)=>{
             dispatch(recieveBeers(json))
-            console.log("data after edit",json);
-
         });    
     }
 }
-
 export const removeBeer = (beer={})=>{
     return {
         type:'REMOVE_BEER',
@@ -35,8 +35,7 @@ export const startRemove=(beer)=>{
             method:'DELETE',
             headers:{
                  contenttype:'application/json',   
-            },
-            
+            }, 
         }).then(()=>{
 
             dispatch(removeBeer(beer));
@@ -47,24 +46,26 @@ export const startRemove=(beer)=>{
     export const editBeer = (beer)=>{
         return {
             type:'EDIT_BEER',
-            beer,
-            
+            beer, 
         }
     }
     export const startEditBeer = (beer)=>{
         console.log("start-edit-beer",beer);
         return (dispatch)=>{
            fetch(beer.url,{
-            method:'put',
+            method:'PUT',
             headers:{
-                "content-type":"application/json"
+                "content-type":"application/json",
+                'cache-control':'no-cache',
+                'pragma':'no-cache'
             },
             body:JSON.stringify(beer)
            }).then((response)=>{
                console.log(response);
                return response.json()
-            }).then(()=>{
-                dispatch(editBeer(beer));
+            }).then((json)=>{
+                console.log("response-beer",json);
+                dispatch(editBeer(json));
             }
                    
                 ).catch((error)=>{

@@ -15,7 +15,7 @@ export const startAddBeer = (beer)=>{
             },
             body:JSON.stringify(beer)
         }).then((response)=>{
-            console.log("response",response);
+            
             return response.json();
         }).then((responseJson)=>{
             dispatch(addBeer({
@@ -37,7 +37,7 @@ export const fetchBeerDetails=(json)=>{
     }
 }
 export const fetchBeer=(beer)=>{
-    console.log("fetching",beer);
+    
     return(dispatch)=>{ fetch(beer.url).then((response)=>{
          return response.json()
      }).then((json)=>{

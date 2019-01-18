@@ -6,6 +6,7 @@ import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css';
 import './index.css';
 import './App.css';
+import './lists.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import {setNameFilter,sortByDate,sortByName} from '../actions/filters'
 class BeersFilter extends React.Component{
     onSortChange = (e)=>{
@@ -14,17 +14,22 @@ class BeersFilter extends React.Component{
     }
     render(){
         return(
-            <div className="filters_container">
-                 <div className="filters_widget">
-                    <div className="filter">
-                        <input className="inp" type="text" placeholder="filter" onChange={this.onTextChange}/>
-                        <select className="select" onChange={this.onSortChange}>
-                            <option value="date">Date</option>
-                            <option value="name">Name</option>
-                        </select>
-                    </div>
+            <div className="content-container">
+                 <div className="input-group">
+                    <div className="input-group__item">
+                        
+                        <input className="text-input" type="text" placeholder="filter" onChange={this.onTextChange}/>
+                    </div>  
+                    <div className="input-group__item">
+                            <select className="select_" 
+                            onChange={this.onSortChange}
+                            value={this.props.filters.sorty}
+                            >
+                                <option value="date">Date</option>
+                                <option value="name">Name</option>
+                            </select>
+                    </div>    
                  </div>
-
             </div>
         );
     }

@@ -1,9 +1,9 @@
 export default(beers,category,{name="",sortBy=""})=>{
-    console.log("here",category);
+    
     return beers.filter((beer)=>{
       const categoryMatch = category && beer.category === category.url;
       const nameMatch =beer.name.toLowerCase().includes(name.toLowerCase());
-      console.log("sorting",nameMatch);
+      
       return nameMatch && categoryMatch;
     }).sort((a,b)=>{
       if(sortBy === 'date'){

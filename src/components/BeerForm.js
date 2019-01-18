@@ -44,10 +44,10 @@ class BeerForm extends React.Component{
 
 
     onSubmitHandler = (e)=>{
-        console.log("submitting");
+        
        e.preventDefault();
        if(!this.state.name || !this.state.brewery_location || !this.state.ibu || !this.state.style){
-           console.log("error");
+           
            this.setState(()=>{
                return {error:"Please enter mandatory fields."}
            });

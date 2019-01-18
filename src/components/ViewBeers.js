@@ -2,7 +2,6 @@ import React from 'react';
 import BeerList from './BeerList';
 import BeersFilter from './BeersFilter'
 const ViewBeers = (props)=>{
-    console.log("view",props);
     return (
         <div className="beers_list">
            <div className="filters">
