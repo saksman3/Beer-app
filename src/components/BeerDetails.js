@@ -18,7 +18,6 @@ class BeerDetails extends React.Component{
                   <p>IBU : {this.props.beer.ibu}</p>
                   <p>ABV : {this.props.beer.abv}</p>
                   <p>breweryLocation : {this.props.beer.brewery_location}</p>
-                  <p>breweryLocation : {this.props.beer.url}</p>
                   <Link to={`/edit/${this.props.match.params.id}`}>edit</Link>
                   <button className="btn btn-danger"onClick={this.removeFunct}>Remove</button>                   
                   </div>
