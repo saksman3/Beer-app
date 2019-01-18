@@ -2,21 +2,42 @@ import React from 'react';
 import BeerList from './BeerList';
 import BeersFilter from './BeersFilter';
 import {connect} from 'react-redux';
-const ViewBeers = (props)=>{
-
-    return (
-        <div className="beers_list">
-             <p className="list-item">{}</p>
-           <div className="filters">
-              <BeersFilter/>
-           </div>
-               <BeerList category={props.category}/>
-        </div>
-    )
+import Modal from './Modal';
+import {startEditCategory} from '../actions/categories';
+class ViewBeers extends React.Component{
+    state={
+        name:this.props.category.name
+    }
+    onClick=(category)=>{
+       this.props.startEditCategory(category);
+       this.setState(()=>({name:category.name}))
+    }
+    render(){
+        return (
+            <div className="beers_list">
+                 <h2 className="category_name">{this.state.name}</h2>
+                 <h2 className="category_name">
+                    <Modal category={this.props.category} 
+                         save={this.onClick} mode="Edit"
+                    />
+                </h2>
+               <div className="filters">
+                  <BeersFilter/>
+               </div>
+                   <BeerList category={this.props.category}/>
+            </div>
+        )
+    }
+  
 }
 const mapStateToProps=(state)=>{
     return {
          category:state.category?state.category:{}
     }
 }
-export default connect(mapStateToProps)(ViewBeers);
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        startEditCategory:(category)=>dispatch(startEditCategory(category)),
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ViewBeers);

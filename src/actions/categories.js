@@ -45,7 +45,9 @@ export const startEditCategory = (category)=>{
         fetch(category.url,{
             method:'PUT',
             headers:{
-                "content-type":"application/json"
+                "content-type":"application/json",
+                'cache-control':'no-cache',
+                'pragma':'no-cache'
             },
             body:JSON.stringify(category)
         }).then((response)=>{
@@ -55,8 +57,8 @@ export const startEditCategory = (category)=>{
              else{
                  console.log("something went wrong")
              }
-        }).then(()=>{
-            dispatch(editCategory(category));
+        }).then((response)=>{
+            dispatch(editCategory(response));
         }).catch((error)=>{
             console.log(error,"error occured");
         });

@@ -64,6 +64,7 @@ class FormDialog extends React.Component {
               type="text"
               fullWidth
               onChange={this.onChange}
+              value={this.state.name}
               required
             />
           </DialogContent>

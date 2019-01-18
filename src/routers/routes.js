@@ -9,12 +9,12 @@ import {fetchCategories} from '../actions/categories';
 import EditBeer from '../components/EditBeer';
 import BeerDetails from '../components/BeerDetails';
 import SearchBeers from '../components/Search';
-import {fetchData} from '../actions/beers';
+
 class  AppRoutes extends React.Component{
     componentDidMount()
     {
         this.props.fetchCategories();
-        this.props.fetchData();
+        
     }
     render(){
     return (
@@ -40,7 +40,7 @@ class  AppRoutes extends React.Component{
 const mapDispatchToProps = (dispatch)=>{
     return {
         fetchCategories:()=>dispatch(fetchCategories()),
-        fetchData:()=>dispatch(fetchData())
+        
     };
 }
 export default connect(undefined,mapDispatchToProps)(AppRoutes);

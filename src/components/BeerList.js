@@ -35,4 +35,10 @@ const mapStateToProps = (state)=>{
         
     }
 }
-export default connect(mapStateToProps)(BeerList);
+export default connect(mapStateToProps,undefined,undefined, {
+    pure: true,
+    areStatesEqual: (next, prev) => {
+      console.log('areStatesEqual?',next,prev); // <-- THIS NEVER GETS LOGGED.
+      return false;
+    },
+  },)(BeerList);

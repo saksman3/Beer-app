@@ -282,9 +282,9 @@ flex-shrink: 1;
   .text-input,.select {
     border: 1px solid #cacccd;
     height: 50px;
-    font-size: 1rem;
-    font-weight: 200;
-    padding: 1rem;
+    font-size: 300;
+    font-weight:bold;    
+    padding: 1.6rem;
     color:red;
     width:400px;
   }
@@ -344,4 +344,13 @@ flex-shrink: 1;
 .btn-beer{
     background: #787885;
     border:none;
+}
+.beers_list{
+        margin: 0 auto;
+        padding:  1.6rem;
+        width: 100%;    
+}
+.beers_list .category_name{
+     display: flex;
+     justify-content: center;
 }
