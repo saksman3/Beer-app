@@ -10,15 +10,11 @@ import EditBeer from '../components/EditBeer';
 import BeerDetails from '../components/BeerDetails';
 import SearchBeers from '../components/Search';
 import {fetchData} from '../actions/beers';
-import input from '../components/inputComponent'
 class  AppRoutes extends React.Component{
     componentDidMount()
     {
         this.props.fetchCategories();
         this.props.fetchData();
-        
-        
-       
     }
     render(){
     return (
@@ -31,7 +27,6 @@ class  AppRoutes extends React.Component{
                       <Route path="/" component={Dashboard} exact={true}/>
                       <Route path="/category/:id" component={ViewBeers}/>
                       <Route path="/create" component={AddBeer}/>
-                      <Route path="/input" component={input}/>
                       <Route path="/beer/:id" component={BeerDetails}/>
                       <Route path="/edit/:id" component={EditBeer}/>
                       <Route path="/beer_search" component={SearchBeers}/>

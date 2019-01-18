@@ -1,6 +1,6 @@
 
 const recieveBeers = (json)=>{
-    console.log('my-array',json);
+    
     return {
         type:'FETCH_DATA',
         beers:json,
@@ -8,7 +8,7 @@ const recieveBeers = (json)=>{
 }
 export const fetchData = ()=>{
     return (dispatch)=>{
-        console.log("fetching");
+       
         fetch('http://apichallenge.canpango.com/beers/',{
             headers:{
                 'cache-control':'no-cache',
@@ -29,7 +29,7 @@ export const removeBeer = (beer={})=>{
     }
 }
 export const startRemove=(beer)=>{
-    console.log("url",beer.url)
+    
     return(dispatch)=>{
         fetch(beer.url,{
             method:'DELETE',
@@ -50,7 +50,7 @@ export const startRemove=(beer)=>{
         }
     }
     export const startEditBeer = (beer)=>{
-        console.log("start-edit-beer",beer);
+        
         return (dispatch)=>{
            fetch(beer.url,{
             method:'PUT',
@@ -61,10 +61,10 @@ export const startRemove=(beer)=>{
             },
             body:JSON.stringify(beer)
            }).then((response)=>{
-               console.log(response);
+               
                return response.json()
             }).then((json)=>{
-                console.log("response-beer",json);
+                
                 dispatch(editBeer(json));
             }
                    
